@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeSensors", "HomeSensors\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BoilerTemp-relay", "BoilerTemp-relay\BoilerTemp-relay.vcxproj", "{95BF8FC2-F2D1-409E-9216-31A1441D4A6D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleBlink", "SimpleBlink\SimpleBlink.vcxproj", "{AA25E607-DF71-4846-B4C0-4E3C58B7E13B}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LEDLight", "LEDLight\LEDLight.vcxproj", "{77D99D6E-C090-4372-8D56-B23471CF7031}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DoorSwitch", "DoorSwitch\DoorSwitch.vcxproj", "{767F72AB-343E-4984-9C68-F36E4AA05175}"
@@ -17,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Doorbell", "Doorbell\Doorbell.vcxproj", "{3EFB2360-8E13-4934-8D74-277DED2AC4CC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DoorbellButton", "DoorbellButton\DoorbellButton.vcxproj", "{170C52CD-7E52-4BF1-A09A-4BE88D5E3101}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,12 +40,6 @@ Global
 		{95BF8FC2-F2D1-409E-9216-31A1441D4A6D}.Release|x64.ActiveCfg = Release|Win32
 		{95BF8FC2-F2D1-409E-9216-31A1441D4A6D}.Release|x86.ActiveCfg = Release|Win32
 		{95BF8FC2-F2D1-409E-9216-31A1441D4A6D}.Release|x86.Build.0 = Release|Win32
-		{AA25E607-DF71-4846-B4C0-4E3C58B7E13B}.Debug|x64.ActiveCfg = Debug|Win32
-		{AA25E607-DF71-4846-B4C0-4E3C58B7E13B}.Debug|x86.ActiveCfg = Debug|Win32
-		{AA25E607-DF71-4846-B4C0-4E3C58B7E13B}.Debug|x86.Build.0 = Debug|Win32
-		{AA25E607-DF71-4846-B4C0-4E3C58B7E13B}.Release|x64.ActiveCfg = Release|Win32
-		{AA25E607-DF71-4846-B4C0-4E3C58B7E13B}.Release|x86.ActiveCfg = Release|Win32
-		{AA25E607-DF71-4846-B4C0-4E3C58B7E13B}.Release|x86.Build.0 = Release|Win32
 		{77D99D6E-C090-4372-8D56-B23471CF7031}.Debug|x64.ActiveCfg = Debug|Win32
 		{77D99D6E-C090-4372-8D56-B23471CF7031}.Debug|x86.ActiveCfg = Debug|Win32
 		{77D99D6E-C090-4372-8D56-B23471CF7031}.Debug|x86.Build.0 = Debug|Win32
@@ -56,6 +52,18 @@ Global
 		{767F72AB-343E-4984-9C68-F36E4AA05175}.Release|x64.ActiveCfg = Release|Win32
 		{767F72AB-343E-4984-9C68-F36E4AA05175}.Release|x86.ActiveCfg = Release|Win32
 		{767F72AB-343E-4984-9C68-F36E4AA05175}.Release|x86.Build.0 = Release|Win32
+		{3EFB2360-8E13-4934-8D74-277DED2AC4CC}.Debug|x64.ActiveCfg = Debug|Win32
+		{3EFB2360-8E13-4934-8D74-277DED2AC4CC}.Debug|x86.ActiveCfg = Debug|Win32
+		{3EFB2360-8E13-4934-8D74-277DED2AC4CC}.Debug|x86.Build.0 = Debug|Win32
+		{3EFB2360-8E13-4934-8D74-277DED2AC4CC}.Release|x64.ActiveCfg = Release|Win32
+		{3EFB2360-8E13-4934-8D74-277DED2AC4CC}.Release|x86.ActiveCfg = Release|Win32
+		{3EFB2360-8E13-4934-8D74-277DED2AC4CC}.Release|x86.Build.0 = Release|Win32
+		{170C52CD-7E52-4BF1-A09A-4BE88D5E3101}.Debug|x64.ActiveCfg = Debug|Win32
+		{170C52CD-7E52-4BF1-A09A-4BE88D5E3101}.Debug|x86.ActiveCfg = Debug|Win32
+		{170C52CD-7E52-4BF1-A09A-4BE88D5E3101}.Debug|x86.Build.0 = Debug|Win32
+		{170C52CD-7E52-4BF1-A09A-4BE88D5E3101}.Release|x64.ActiveCfg = Release|Win32
+		{170C52CD-7E52-4BF1-A09A-4BE88D5E3101}.Release|x86.ActiveCfg = Release|Win32
+		{170C52CD-7E52-4BF1-A09A-4BE88D5E3101}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

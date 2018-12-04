@@ -1,5 +1,7 @@
 //#define MY_DEBUG
 //#define MY_DEBUG_VERBOSE_RF24
+#define MY_SPLASH_SCREEN_DISABLED
+#define MY_RADIO_RF24
 #define MY_RF24_PA_LEVEL (RF24_PA_MAX)
 #include <MySensors.h>
 

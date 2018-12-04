@@ -5,11 +5,11 @@
 class Light {
 public:
     Light() {
-        lightLevels = new buffer<int>(60);
+        lightLevels = new buffer<unsigned int>(60); 
         lightState = false;
         timerLight = millis();
 		
-		// Initialize the I2C bus (BH1750 library doesn't do this automatically)
+		// Initialize the I2C bus (BH1750 library doesn't this automatically)
 		//Wire.begin();
 		//lightSensor.begin();
 	}
@@ -72,15 +72,15 @@ public:
         lightTimeout = minutes;
     }
 
-    bool IsDarkness(int lux = 12) {
+    bool IsDarkness(unsigned int lux = 12) {
         return GetAvgIllumination() < lux ? true : false;
     }
 
-    int GetIlluminationLevel() {
+    unsigned int GetIlluminationLevel() {
         return lightSensor.readLightLevel();
     }
 
-    int GetAvgIllumination() {
+    unsigned int GetAvgIllumination() {
         return lightLevels->GetAvgVal();
     }
 
@@ -112,7 +112,7 @@ protected:
 	int lightTimeout = 10;
 	int lightIntensity = 50;
 	BH1750 lightSensor;
-	buffer<int> *lightLevels;
+	buffer<unsigned int> *lightLevels;
 
 	inline void ResetTimer() {
 		timerLight = millis();
