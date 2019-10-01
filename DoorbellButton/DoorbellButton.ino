@@ -1,30 +1,34 @@
-#define MY_RADIO_NRF24
+/*  Button sensor (max. 2 buttons)
+	1 MHz int, Optiboot
+*/
+//#define MY_DEBUG
+#define MY_RADIO_RF24
 #define RF24_PA_MAX
+#define MY_BAUD_RATE 9600
 #include <MyConfig.h>
 #include <MySensors.h>  
-#undef DEBUG
 
 #define PIN_BUTTON_1	2
 #define PIN_BUTTON_2	3
 #define ID_VOLTAGE		9
 
 const long InternalReferenceVoltage = 1084;  // Adjust this value to your board's specific internal BG voltage
-static const float VMIN = 1.8, VMAX = 3.5;
+static const float VMIN = 1.8, VMAX = 3.2;
 
 MyMessage msgBtn(PIN_BUTTON_1, V_TRIPPED);
 bool msgAck;
-uint8_t counter;
 
 void presentation() {
 	sendSketchInfo("Doorbell buttons", "1.0");
 	present(PIN_BUTTON_1, S_DOOR, "Doorbell button 1");
 	present(PIN_BUTTON_2, S_DOOR, "Doorbell button 2");
-	present(ID_VOLTAGE, S_MULTIMETER, "Battery voltage");
+	// Send voltage on VAR_1 channel of the BUTTON_1
+	//present(ID_VOLTAGE, S_MULTIMETER, "Battery voltage");
 }
 
 void setup() {
-#ifdef DEBUG
-	Serial.begin(115200);
+#ifdef MY_DEBUG
+	Serial.begin(9600);
 #endif
 	pinMode(PIN_BUTTON_1, INPUT);
 	pinMode(PIN_BUTTON_2, INPUT);
@@ -42,7 +46,7 @@ void loop()
 		msgAck = false;
 		for (int i = 0; msgAck == false && i < 3; i++)
 		{
-#ifdef DEBUG
+#ifdef MY_DEBUG
 			if (i > 0)
 			{
 				Serial.println("Send retry...");
@@ -51,7 +55,7 @@ void loop()
 #endif
 			send(msgBtn.set(digitalRead(PIN_BUTTON_1 + btn) == LOW), true);
 			wait(500, C_SET, V_TRIPPED);
-#ifdef DEBUG
+#ifdef MY_DEBUG
 			Serial.print("Wait took ");
 			Serial.println(millis() - t);
 #endif
@@ -59,7 +63,7 @@ void loop()
 	}
 	else
 	{
-#ifdef DEBUG
+#ifdef MY_DEBUG
 		Serial.println("Sleep timeout");
 #endif
 		sendBatteryMsg();
@@ -71,7 +75,7 @@ void receive(const MyMessage& msg)
 	if (msg.isAck())
 	{ 
 		msgAck = true;
-#ifdef DEBUG
+#ifdef MY_DEBUG
 		Serial.print("ACK received: ");
 		Serial.print(msg.type);
 		Serial.print(msg.sensor);
@@ -82,6 +86,8 @@ void receive(const MyMessage& msg)
 
 void sendBatteryMsg()
 {
+	static uint8_t counter = 0;
+
 	float volt = getBandgap();
 	if (counter++ % 2 == 1)
 	{
@@ -89,8 +95,13 @@ void sendBatteryMsg()
 	}
 	else
 	{
+		/*
 		MyMessage msgVolt(ID_VOLTAGE, V_VOLTAGE);
 		send(msgVolt.set(volt, 2));
+		*/
+		// Send on VAR1 channel
+		MyMessage msgVar1(PIN_BUTTON_1, V_VAR1);
+		send(msgVar1.set(volt, 2));
 	}
 }
 

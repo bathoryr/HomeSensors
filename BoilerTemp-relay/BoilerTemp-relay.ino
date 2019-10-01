@@ -7,15 +7,16 @@
 //#define MY_DEBUG
 
 // Enable and select radio type attached
-#include <MyConfig.h>
 //#define MY_REPEATER_FEATURE
+#define MY_RADIO_RF24
 #define MY_RX_MESSAGE_BUFFER_FEATURE
 #define MY_RX_MESSAGE_BUFFER_SIZE 8
 #define MY_RF24_IRQ_PIN 2
 // Prevent this repeater to connect to another repeater
 //#define MY_PARENT_NODE_ID 0
-#define MY_RF24_PA_LEVEL (RF24_PA_MAX)
+#define RF24_PA_MAX
 
+#include <MyConfig.h>
 #include <MySensors.h>  
 #include <DallasTemperature.h>
 #include <OneWire.h>
@@ -62,7 +63,7 @@ void setup()
 void presentation()
 {
 	// Send the Sketch Version Information to the Gateway
-	sendSketchInfo("BoilerTemp", "0.7");
+	sendSketchInfo("BoilerTemp", "0.8");
 
 	// Register all sensors to gw (they will be created as child devices)
 	present(CHILD_ID_TEMP, S_TEMP, "Boiler temp");
@@ -116,19 +117,19 @@ void sendBoilerTemp()
 
 		send(msgTemp.set(temperature, 1));
 		lastTemperature = temperature;
-		/* Boiler is controlled from gateway
+
 		if (temperature < TargetTemp - 10) {
 			digitalWrite(RELAY_PIN, HIGH);
-			send(msgHeating.set(true));
+			send(msgHeating.set(1));
 		}
-		*/
+		
 		if (temperature >= TargetTemp) {
 			digitalWrite(RELAY_PIN, LOW);
-			send(msgHeating.set(false));
+			send(msgHeating.set(0));
 		}
 	}
 	if (temperature > TargetTemp + 5) {
 		digitalWrite(RELAY_PIN, LOW);
-		send(msgHeating.set(false));
+		send(msgHeating.set(0));
 	}
 }

@@ -22,6 +22,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DoorbellButton", "DoorbellB
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InternalARef", "InternalARef\InternalARef.vcxproj", "{666D63F5-1D3D-445E-8187-2AF92E328F73}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EnergyMeter", "EnergyMeter\EnergyMeter.vcxproj", "{3ADAE9A9-00DE-427E-AE6A-F97B3DCFBDE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -72,6 +74,12 @@ Global
 		{666D63F5-1D3D-445E-8187-2AF92E328F73}.Release|x64.ActiveCfg = Release|Win32
 		{666D63F5-1D3D-445E-8187-2AF92E328F73}.Release|x86.ActiveCfg = Release|Win32
 		{666D63F5-1D3D-445E-8187-2AF92E328F73}.Release|x86.Build.0 = Release|Win32
+		{3ADAE9A9-00DE-427E-AE6A-F97B3DCFBDE2}.Debug|x64.ActiveCfg = Debug|Win32
+		{3ADAE9A9-00DE-427E-AE6A-F97B3DCFBDE2}.Debug|x86.ActiveCfg = Debug|Win32
+		{3ADAE9A9-00DE-427E-AE6A-F97B3DCFBDE2}.Debug|x86.Build.0 = Debug|Win32
+		{3ADAE9A9-00DE-427E-AE6A-F97B3DCFBDE2}.Release|x64.ActiveCfg = Release|Win32
+		{3ADAE9A9-00DE-427E-AE6A-F97B3DCFBDE2}.Release|x86.ActiveCfg = Release|Win32
+		{3ADAE9A9-00DE-427E-AE6A-F97B3DCFBDE2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
