@@ -33,6 +33,14 @@ class buffer {
         return _head;
     }
 
+	void reset() {
+		for (int i = 0; i < _size; ++i)
+		{
+			_buf[i] = 0;
+		}
+		_head = 0;
+	}
+
     int GetAvgVal() {
         T val = 0;
         for(int i = 0; i < _size; i++) {

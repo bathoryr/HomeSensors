@@ -90,6 +90,9 @@ public:
         if (IsLightOn()) {
             if (TimerExpired()) {
                 TurnOff();
+				// Reset average light level right after light is turned off
+				lightLevels->reset();
+				lightLevels->add(GetIlluminationLevel());
             }
             // Need to set darkness level higher, because of light from LED
             if (MotionDetected() && IsDarkness(80)) {
